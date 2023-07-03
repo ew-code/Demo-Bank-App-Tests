@@ -25,6 +25,11 @@ if link broken check <https://jaktestowac.pl/lesson/pw1s01l01/>
 - view report  
 `npx playwright show-report`
 
+// npx playwright codegen <https://demo-bank.vercel.app/>  - nagrywanie
+// npx palwright test  - puszczanie testu (testy z głownego katalogu , bo config.ts)
+// npx playwright show-reprt
+// npx playwright test --headed uruchomi testy z wyświetleniem przeglądarki
+
 ## Playwright Config modifications
 
 - config file `playwright.config.ts`
@@ -41,3 +46,5 @@ if link broken check <https://jaktestowac.pl/lesson/pw1s01l01/>
 
 ## Visual Studio Code
 - Preview: for README.md
+- Auto Save: in File -> Auto Save
+- Open Timeline: file context menu
