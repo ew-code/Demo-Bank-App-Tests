@@ -38,3 +38,6 @@ if link broken check <https://jaktestowac.pl/lesson/pw1s01l01/>
     //   },
     // },
     ```
+
+## Visual Studio Code
+- Preview: for README.md
