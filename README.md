@@ -62,7 +62,30 @@ if link broken check <https://jaktestowac.pl/lesson/pw1s01l01/>
 - Open Timeline: file context menu
 
 ## Playwright snippets
-- test.describe (group of tests)
+
 - blur()
-- running one test: 'test.only'
 - fill() focus on element (without having to click on the item)
+
+- import:
+
+    ```typescript
+    import { test, expect } from '@playwright/test';
+    ```
+
+- test:
+
+    ```typescript
+    test('test description', async ({ page }) => {
+        //your code
+    });
+    ```
+
+- describe:
+<!-- (group of tests) -->
+    ```typescript
+     test.describe('Group description', () => {
+        //your code
+     });
+    ```
+
+- running one given test: `test.only`
