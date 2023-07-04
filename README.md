@@ -81,7 +81,7 @@ if link broken check <https://jaktestowac.pl/lesson/pw1s01l01/>
     ```
 
 - describe:
-<!-- (group of tests) -->
+
     ```typescript
      test.describe('Group description', () => {
         //your code
