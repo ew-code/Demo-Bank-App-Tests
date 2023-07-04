@@ -48,5 +48,8 @@ if link broken check <https://jaktestowac.pl/lesson/pw1s01l01/>
 - Preview: for README.md
 - Auto Save: in File -> Auto Save
 - Open Timeline: file context menu
+
+## Playwright snippets
 - test.describe (group of tests)
 - blur()
+- running one test: 'test.only'
