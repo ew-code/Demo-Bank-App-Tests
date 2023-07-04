@@ -24,11 +24,23 @@ if link broken check <https://jaktestowac.pl/lesson/pw1s01l01/>
 `npx playwright test --headed`
 - view report  
 `npx playwright show-report`
+- run Trace Viewer on zip file
+`npx playwright show-trace trace.zip`
 
-// npx playwright codegen <https://demo-bank.vercel.app/>  - nagrywanie
 // npx palwright test  - puszczanie testu (testy z głownego katalogu , bo config.ts)
 // npx playwright show-reprt
 // npx playwright test --headed uruchomi testy z wyświetleniem przeglądarki
+
+### Updating Playwright
+
+- check if Playwright should be updated  
+`npm outdated @playwright/test`
+- update Playwright  
+`npm i @playwright/test`
+- update browsers  
+`npx playwright install`
+- verify Playwright version  
+`npx @playwright/test --version`
 
 ## Playwright Config modifications
 
