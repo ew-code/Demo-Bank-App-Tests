@@ -65,4 +65,4 @@ if link broken check <https://jaktestowac.pl/lesson/pw1s01l01/>
 - test.describe (group of tests)
 - blur()
 - running one test: 'test.only'
-- fill() focus on element (without click)
+- fill() focus on element (without having to click on the item)
