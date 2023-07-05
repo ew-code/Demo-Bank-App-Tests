@@ -9,12 +9,10 @@ test.describe('Pulpit tests', () => {
         await page.locator('#widget_1_transfer_receiver').selectOption('2');
         await page.locator('#widget_1_transfer_amount').fill('123,99');
         await page.locator('#widget_1_transfer_title').fill('Zwrot środków');
-        // await page.getByRole('button', { name: 'wykonaj' }).click();
         await page.locator('#execute_btn').click();
         await page.getByTestId('close-button').click();
-        await page.getByRole('link', { name: 'Przelew wykonany! Chuck Demobankowy - 123,99PLN - Zwrot środków' }).click();
 
-        // await expect(page.getByTestId('error-login-password')).toHaveText('hasło ma min. 8 znaków');
+        await expect(page.locator('#show_messages')).toHaveText('Przelew wykonany! Chuck Demobankowy - 123,99PLN - Zwrot środków');
     });
 });
 
@@ -22,4 +20,4 @@ test.describe('Pulpit tests', () => {
 //
 // selektor - adres elementu
 
-// $$('#widget_1_transfer_amount') sprawdzenie elemetu w konsoli
+// $$('#widget_1_transfer_amount') sprawdzenie elemetu w konsoli 
