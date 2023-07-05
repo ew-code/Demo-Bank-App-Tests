@@ -9,7 +9,8 @@ test.describe('Pulpit tests', () => {
         await page.locator('#widget_1_transfer_receiver').selectOption('2');
         await page.locator('#widget_1_transfer_amount').fill('123,99');
         await page.locator('#widget_1_transfer_title').fill('Zwrot środków');
-        await page.getByRole('button', { name: 'wykonaj' }).click();
+        // await page.getByRole('button', { name: 'wykonaj' }).click();
+        await page.locator('#execute_btn').click();
         await page.getByTestId('close-button').click();
         await page.getByRole('link', { name: 'Przelew wykonany! Chuck Demobankowy - 123,99PLN - Zwrot środków' }).click();
 
@@ -18,5 +19,7 @@ test.describe('Pulpit tests', () => {
 });
 
 // lokator - metoda w jaki sposób łapiemy jak odnajduemy element
-// 
+//
 // selektor - adres elementu
+
+// $$('#widget_1_transfer_amount') sprawdzenie elemetu w konsoli
