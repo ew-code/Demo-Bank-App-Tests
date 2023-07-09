@@ -18,7 +18,7 @@ test.describe('Pulpit tests', () => {
         await expect(page.locator('#show_messages')).toHaveText('Przelew wykonany! Chuck Demobankowy - 123,99PLN - pizza');
     });
 
-    test.only('successful mobile top-up', async ({ page }) => {
+    test('successful mobile top-up', async ({ page }) => {
         await page.goto('https://demo-bank.vercel.app/');
         await page.getByTestId('login-input').fill('logintes');
         await page.getByTestId('password-input').fill('password');
