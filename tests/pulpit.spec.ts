@@ -6,12 +6,14 @@ test.describe('Pulpit tests', () => {
         await page.getByTestId('login-input').fill('logintest');
         await page.getByTestId('password-input').fill('password');
         await page.getByTestId('login-button').click();
+
         await page.locator('#widget_1_transfer_receiver').selectOption('2');
         await page.locator('#widget_1_transfer_amount').fill('123,99');
         await page.locator('#widget_1_transfer_title').fill('pizza');
-        await page.locator('#execute_btn').click();
-        await page.getByTestId('close-button').click();
 
+        await page.getByRole('button', { name: 'wykonaj' }).click();
+        // await page.locator('#execute_btn').click();
+        await page.getByTestId('close-button').click();
         await expect(page.locator('#show_messages')).toHaveText('Przelew wykonany! Chuck Demobankowy - 123,99PLN - pizza');
     });
 });
