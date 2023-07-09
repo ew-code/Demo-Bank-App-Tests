@@ -12,53 +12,47 @@ if link broken check <https://jaktestowac.pl/lesson/pw1s01l01/>
 
 ## Commands
 
-- check `NodeJS` version  
+- check `NodeJS` version
 `node -v`
 
-- new project with Playwright  
+- new project with Playwright
 `npm init playwright@latest`
 
-- record tests for given site  
+- record tests for given site
 `npx playwright codegen https://demo-bank.vercel.app/`
 
-- run tests without browser GUI  
+- run tests without browser GUI
 `npx playwright test`
 
-- run tests with browser GUI  
+- run tests with browser GUI
 `npx playwright test --headed`
 
-- view report  
+- view report
 `npx playwright show-report`
 
-- run Trace Viewer on zip file  
+- run Trace Viewer on zip file
 `npx playwright show-trace trace.zip`
 
-- Runs the end-to-end tests.  
+- Runs the end-to-end tests.
 `npx playwright test`
 
-  npx playwright test --ui
+ - Starts the interactive UI mode.
+`npx playwright test --ui`
 
-    Starts the interactive UI mode.
+- Runs the tests only on Desktop Chrome.
+`npx playwright test --project=chromium`
 
-  npx playwright test --project=chromium
+ - Runs the tests in a specific file.
+`npx playwright test example`
 
-    Runs the tests only on Desktop Chrome.
+- Runs the tests in debug mode.
+`npx playwright test --debug`
 
-  npx playwright test example
+- Auto generate tests with Codegen.
+`npx playwright codegen`
 
-    Runs the tests in a specific file.
-
-  npx playwright test --debug
-
-    Runs the tests in debug mode.
-
-  npx playwright codegen
-
-    Auto generate tests with Codegen.
-
-We suggest that you begin by typing:
-
-    npx playwright test
+- We suggest that you begin by typing:
+`npx playwright test`
 
 // npx palwright test  - puszczanie testu (testy z głownego katalogu , bo config.ts)
 // npx playwright show-reprt
