@@ -27,6 +27,7 @@ test.describe('Pulpit tests', () => {
         await page.locator('#widget_1_topup_receiver').selectOption('500 xxx xxx');
         await page.locator('#widget_1_topup_amount').fill('40,00');
         await page.locator('#uniform-widget_1_topup_agreement span').click();
+        await page.locator('#uniform-widget_1_topup_agreement span').click();
         await page.getByRole('button', { name: 'doładuj telefon' }).click();
         await page.getByTestId('close-button').click();
 
@@ -39,6 +40,8 @@ test.describe('Pulpit tests', () => {
 
 // selektor - adres elementu
 
-// $$('#widget_1_transfer_amount') sprawdzenie elemetu w konsoli
+// $$('#widget_1_transfer_amount') sprawdzenie elemetu w konsoli !!!!
 
 // czyścimy testy np. z niepotrzebnych kliknięć
+
+// alt + shift + strzałka w dół (kopiuje linie i wkleja ją niżej)
