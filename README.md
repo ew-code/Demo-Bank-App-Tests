@@ -117,3 +117,5 @@ if link broken check <https://jaktestowac.pl/lesson/pw1s01l01/>
 - Arrange Act Assert
 ctrl + shift + r
 alt + strzałka    przeniesienie lini
+
+ctrl + spacja ${}
