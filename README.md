@@ -54,10 +54,6 @@ if link broken check <https://jaktestowac.pl/lesson/pw1s01l01/>
 - We suggest that you begin by typing:
 `npx playwright test`
 
-// npx palwright test  - puszczanie testu (testy z głownego katalogu , bo config.ts)
-// npx playwright show-reprt
-// npx playwright test --headed uruchomi testy z wyświetleniem przeglądarki
-
 ### Updating Playwright
 
 - check if Playwright should be updated  
@@ -116,3 +112,8 @@ if link broken check <https://jaktestowac.pl/lesson/pw1s01l01/>
     ```
 
 - running one given test: `test.only`
+
+--------------------------------------------------------
+- Arrange Act Assert
+ctrl + shift + r
+alt + strzałka    przeniesienie lini
