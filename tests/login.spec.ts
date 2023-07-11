@@ -11,12 +11,6 @@ const expectedErrorTooShortUserId = 'identyfikator ma min. 8 znaków';
 test.describe('User login to Demobank', () => {
 
   test('successful login with correct credentials', async ({ page }) => {
-
-    // const url = 'https://demo-bank.vercel.app/';
-    // const userID = 'logintes';
-    // const userPassword = 'password';
-    // const expectedUserName = 'Jan Demobankowy';
-
     //Act
     await page.goto(url);
     await page.getByTestId('login-input').fill(userID);
