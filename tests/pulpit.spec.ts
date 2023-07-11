@@ -31,9 +31,6 @@ test.describe("Pulpit tests", () => {
   });
 
   test("successful mobile top-up", async ({ page }) => {
-    // await page.goto("https://demo-bank.vercel.app/");
-    // await page.getByTestId("login-input").fill("logintes");
-    // await page.getByTestId("password-input").fill("password");
     await page.goto(url);
     await page.getByTestId("login-input").fill(userID);
     await page.getByTestId("password-input").fill(userPassword);
@@ -42,13 +39,10 @@ test.describe("Pulpit tests", () => {
     await page.locator("#widget_1_topup_receiver").selectOption("500 xxx xxx");
     await page.locator("#widget_1_topup_amount").fill("40,00");
     await page.locator("#uniform-widget_1_topup_agreement span").click();
-    await page.locator("#uniform-widget_1_topup_agreement span").click();
     await page.getByRole("button", { name: "doładuj telefon" }).click();
     await page.getByTestId("close-button").click();
 
-    await expect(page.locator("#show_messages")).toHaveText(
-      "Doładowanie wykonane! 40,00PLN na numer 500 xxx xxx"
-    );
+    await expect(page.locator("#show_messages")).toHaveText("Doładowanie wykonane! 40,00PLN na numer 500 xxx xxx");
   });
 });
 
