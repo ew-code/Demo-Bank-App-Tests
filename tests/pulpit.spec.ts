@@ -8,6 +8,8 @@ const reciverId = "2";
 const transferAmount = "123";
 const transferTitle = "pizza";
 const expectedTransferReciver = "Chuck Demobankowy";
+const topupReciver = "500 xxx xxx";
+const topupAmount = "40,00";
 
 test.describe("Pulpit tests", () => {
   test("quick payment with correct data", async ({ page }) => {
@@ -25,24 +27,22 @@ test.describe("Pulpit tests", () => {
     await page.getByTestId("close-button").click();
 
     //Assert
-    await expect(page.locator("#show_messages")).toHaveText(
-      `Przelew wykonany! ${expectedTransferReciver} - ${transferAmount},00PLN - ${transferTitle}`
-    );
+    await expect(page.locator("#show_messages")).toHaveText(`Przelew wykonany! ${expectedTransferReciver} - ${transferAmount},00PLN - ${transferTitle}`);
   });
 
-  test("successful mobile top-up", async ({ page }) => {
+  test.only("successful mobile top-up", async ({ page }) => {
     await page.goto(url);
     await page.getByTestId("login-input").fill(userID);
     await page.getByTestId("password-input").fill(userPassword);
     await page.getByTestId("login-button").click();
 
-    await page.locator("#widget_1_topup_receiver").selectOption("500 xxx xxx");
-    await page.locator("#widget_1_topup_amount").fill("40,00");
+    await page.locator("#widget_1_topup_receiver").selectOption(topupReciver);
+    await page.locator("#widget_1_topup_amount").fill(topupAmount);
     await page.locator("#uniform-widget_1_topup_agreement span").click();
     await page.getByRole("button", { name: "doładuj telefon" }).click();
     await page.getByTestId("close-button").click();
 
-    await expect(page.locator("#show_messages")).toHaveText("Doładowanie wykonane! 40,00PLN na numer 500 xxx xxx");
+    await expect(page.locator("#show_messages")).toHaveText(`Doładowanie wykonane! ${topupAmount}PLN na numer ${topupReciver}`);
   });
 });
 
