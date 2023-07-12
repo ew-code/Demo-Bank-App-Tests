@@ -10,10 +10,12 @@ const transferTitle = "pizza";
 const expectedTransferReciver = "Chuck Demobankowy";
 const topUpReciver = "500 xxx xxx";
 const topUpAmount = "40,00";
+const expectedMobileTopUpMessage = `Doładowanie wykonane! ${topUpAmount}PLN na numer ${topUpReciver}`;
 
+const expectedTransferMessage = `Przelew wykonany! ${expectedTransferReciver} - ${transferAmount},00PLN - ${transferTitle}`;
 test.describe("Pulpit tests", () => {
 
-  test("quick payment with correct data", async ({ page }) => {
+  test("transfer with correct data", async ({ page }) => {
     //Act
     await page.goto(url);
     await page.getByTestId("login-input").fill(userID);
@@ -28,9 +30,7 @@ test.describe("Pulpit tests", () => {
     await page.getByTestId("close-button").click();
 
     //Assert
-    await expect(page.locator("#show_messages")).toHaveText(
-      `Przelew wykonany! ${expectedTransferReciver} - ${transferAmount},00PLN - ${transferTitle}`
-    );
+    await expect(page.locator("#show_messages")).toHaveText(expectedTransferMessage);
   });
 
   test("successful mobile top-up", async ({ page }) => {
@@ -45,9 +45,7 @@ test.describe("Pulpit tests", () => {
     await page.getByRole("button", { name: "doładuj telefon" }).click();
     await page.getByTestId("close-button").click();
 
-    await expect(page.locator("#show_messages")).toHaveText(
-      `Doładowanie wykonane! ${topUpAmount}PLN na numer ${topUpReciver}`
-    );
+    await expect(page.locator("#show_messages")).toHaveText(expectedMobileTopUpMessage);
   });
 });
 
