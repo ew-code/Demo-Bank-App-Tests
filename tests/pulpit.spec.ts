@@ -8,11 +8,12 @@ const reciverId = "2";
 const transferAmount = "123";
 const transferTitle = "pizza";
 const expectedTransferReciver = "Chuck Demobankowy";
+const expectedTransferMessage = `Przelew wykonany! ${expectedTransferReciver} - ${transferAmount},00PLN - ${transferTitle}`;
+
 const topUpReciver = "500 xxx xxx";
 const topUpAmount = "40,00";
 const expectedMobileTopUpMessage = `Doładowanie wykonane! ${topUpAmount}PLN na numer ${topUpReciver}`;
 
-const expectedTransferMessage = `Przelew wykonany! ${expectedTransferReciver} - ${transferAmount},00PLN - ${transferTitle}`;
 test.describe("Pulpit tests", () => {
 
   test("transfer with correct data", async ({ page }) => {
