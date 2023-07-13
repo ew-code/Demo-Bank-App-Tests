@@ -5,8 +5,6 @@ test.beforeEach(async ({ page }) => {
   await page.goto(url);
 })
 
-
-const url = "https://demo-bank.vercel.app/";
 const userID = "logintes";
 const userPassword = "password";
 
@@ -22,7 +20,6 @@ const expectedMobileTopUpMessage = `Doładowanie wykonane! ${topUpAmount}PLN na 
 
 test.describe("Pulpit tests", () => {
   test("transfer with correct data", async ({ page }) => {
-    await page.goto(url);
     await page.getByTestId("login-input").fill(userID);
     await page.getByTestId("password-input").fill(userPassword);
     await page.getByTestId("login-button").click();
@@ -40,7 +37,6 @@ test.describe("Pulpit tests", () => {
   });
 
   test("successful mobile top-up", async ({ page }) => {
-    await page.goto(url);
     await page.getByTestId("login-input").fill(userID);
     await page.getByTestId("password-input").fill(userPassword);
     await page.getByTestId("login-button").click();
