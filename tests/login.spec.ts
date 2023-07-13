@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test";
 
-const url = "https://demo-bank.vercel.app/";
+
 test.beforeEach(async ({ page }) => { 
+  const url = "https://demo-bank.vercel.app/";
   await page.goto(url);
 })
 
