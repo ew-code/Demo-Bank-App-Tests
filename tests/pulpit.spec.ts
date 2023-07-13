@@ -1,5 +1,11 @@
 import { test, expect } from "@playwright/test";
-//Arrange
+
+test.beforeEach(async ({ page }) => {
+  const url = "https://demo-bank.vercel.app/";
+  await page.goto(url);
+})
+
+
 const url = "https://demo-bank.vercel.app/";
 const userID = "logintes";
 const userPassword = "password";
@@ -16,7 +22,6 @@ const expectedMobileTopUpMessage = `Doładowanie wykonane! ${topUpAmount}PLN na 
 
 test.describe("Pulpit tests", () => {
   test("transfer with correct data", async ({ page }) => {
-    //Act
     await page.goto(url);
     await page.getByTestId("login-input").fill(userID);
     await page.getByTestId("password-input").fill(userPassword);
@@ -29,7 +34,6 @@ test.describe("Pulpit tests", () => {
     await page.getByRole("button", { name: "wykonaj" }).click();
     await page.getByTestId("close-button").click();
 
-    //Assert
     await expect(page.locator("#show_messages")).toHaveText(
       expectedTransferMessage
     );
