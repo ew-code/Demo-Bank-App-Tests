@@ -15,7 +15,6 @@ const topUpAmount = "40,00";
 const expectedMobileTopUpMessage = `Doładowanie wykonane! ${topUpAmount}PLN na numer ${topUpReciver}`;
 
 test.describe("Pulpit tests", () => {
-
   test("transfer with correct data", async ({ page }) => {
     //Act
     await page.goto(url);
@@ -31,7 +30,9 @@ test.describe("Pulpit tests", () => {
     await page.getByTestId("close-button").click();
 
     //Assert
-    await expect(page.locator("#show_messages")).toHaveText(expectedTransferMessage);
+    await expect(page.locator("#show_messages")).toHaveText(
+      expectedTransferMessage
+    );
   });
 
   test("successful mobile top-up", async ({ page }) => {
@@ -46,7 +47,9 @@ test.describe("Pulpit tests", () => {
     await page.getByRole("button", { name: "doładuj telefon" }).click();
     await page.getByTestId("close-button").click();
 
-    await expect(page.locator("#show_messages")).toHaveText(expectedMobileTopUpMessage);
+    await expect(page.locator("#show_messages")).toHaveText(
+      expectedMobileTopUpMessage
+    );
   });
 });
 
