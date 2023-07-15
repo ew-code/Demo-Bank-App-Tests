@@ -1,16 +1,15 @@
 import { test, expect } from "@playwright/test";
 
-const userID = "logintes";
-const userPassword = "password";
-
 test.beforeEach(async ({ page }) => {
+  const userID = "logintes";
+  const userPassword = "password";
   const url = "https://demo-bank.vercel.app/";
   await page.goto(url);
-  
+
   await page.getByTestId("login-input").fill(userID);
   await page.getByTestId("password-input").fill(userPassword);
   await page.getByTestId("login-button").click();
-})
+});
 
 const reciverId = "2";
 const transferAmount = "123";
