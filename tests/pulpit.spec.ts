@@ -6,6 +6,7 @@ const userPassword = "password";
 test.beforeEach(async ({ page }) => {
   const url = "https://demo-bank.vercel.app/";
   await page.goto(url);
+  
   await page.getByTestId("login-input").fill(userID);
   await page.getByTestId("password-input").fill(userPassword);
   await page.getByTestId("login-button").click();
