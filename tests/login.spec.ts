@@ -1,22 +1,18 @@
 import { test, expect } from "@playwright/test";
 
-test.beforeEach(async ({ page }) => { 
-  // const url = "https://demo-bank.vercel.app/";
-  // await page.goto(url);
-  await page.goto('/')
-})
-
-const userID = "logintes";
-const userPassword = "password";
-const expectedUserName = "Jan Demobankowy";
-const tooShortUserId = "1234567";
-const expectedErrorTooShortUserId = "identyfikator ma min. 8 znaków";
-const toShortUserPassword = "1234567";
-const expectedToShortPassword = "hasło ma min. 8 znaków";
-
 test.describe("User login to Demobank", () => {
 
-  test.only("successful login with correct credentials", async ({ page }) => {
+  test.beforeEach(async ({ page }) => {
+    // const url = "https://demo-bank.vercel.app/";
+    // await page.goto(url);
+    await page.goto('/') //baseURL w playwright config
+  })
+
+  test("successful login with correct credentials", async ({ page }) => {
+    const userID = "logintes";
+    const userPassword = "password";
+    const expectedUserName = "Jan Demobankowy";
+
     await page.getByTestId("login-input").fill(userID);
     await page.getByTestId("password-input").fill(userPassword);
     await page.getByTestId("login-button").click();
@@ -25,6 +21,9 @@ test.describe("User login to Demobank", () => {
   });
 
   test("unsuccessful login with too short username", async ({ page }) => {
+    const tooShortUserId = "1234567";
+    const expectedErrorTooShortUserId = "identyfikator ma min. 8 znaków";
+
     await page.getByTestId("login-input").fill(tooShortUserId);
     await page.getByTestId("password-input").click();
 
@@ -32,6 +31,10 @@ test.describe("User login to Demobank", () => {
   });
 
   test("unsuccessful login with too short password", async ({ page }) => {
+    const userID = "logintes";
+    const toShortUserPassword = "1234567";
+    const expectedToShortPassword = "hasło ma min. 8 znaków";
+
     await page.getByTestId("login-input").fill(userID);
     await page.getByTestId("password-input").fill(toShortUserPassword);
     await page.getByTestId("password-input").blur();
