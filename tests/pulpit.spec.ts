@@ -3,9 +3,9 @@ import { test, expect } from "@playwright/test";
 test.beforeEach(async ({ page }) => {
   const userID = "logintes";
   const userPassword = "password";
-  const url = "https://demo-bank.vercel.app/";
-  await page.goto(url);
-
+  // const url = "https://demo-bank.vercel.app/";
+  // await page.goto(url);
+  await page.goto('/') //baseURL w playwright config
   await page.getByTestId("login-input").fill(userID);
   await page.getByTestId("password-input").fill(userPassword);
   await page.getByTestId("login-button").click();
