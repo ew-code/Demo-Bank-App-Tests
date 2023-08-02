@@ -3,7 +3,7 @@ import { loginData, userID } from "../test-data/login.data";
 
 test.describe("Pulpit tests", () => {
   test.beforeEach(async ({ page }) => {
-    const userID = loginData;
+    const userID = loginData.userID;
     const userPassword = "password";
     // const url = "https://demo-bank.vercel.app/";
     // await page.goto(url);
