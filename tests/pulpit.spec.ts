@@ -1,8 +1,9 @@
 import { test, expect } from "@playwright/test";
+import { loginData, userID } from "../test-data/login.data";
 
 test.describe("Pulpit tests", () => {
   test.beforeEach(async ({ page }) => {
-    const userID = "logintes";
+    const userID = loginData;
     const userPassword = "password";
     // const url = "https://demo-bank.vercel.app/";
     // await page.goto(url);
