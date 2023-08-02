@@ -47,7 +47,7 @@ test.describe("Pulpit tests", () => {
     );
   });
 
-  test.only("correct balance after successful mobile top-up", async ({ page }) => {
+  test("correct balance after successful mobile top-up", async ({ page }) => {
     const topUpReciver = '500 xxx xxx';
     const topUpAmount = '400';
     const initialBlance = await page.locator('#money_value').innerText();
