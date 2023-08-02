@@ -1,5 +1,7 @@
 export const userID = "logintes";
+export const userPassword = "password";
 
 export const loginData = {
-    userID: 'logintes'
+    userID: 'logintes',
+    password: 'password'
 }
