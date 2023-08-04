@@ -10,10 +10,10 @@ test.describe("Payment tests", () => {
     await page.getByTestId("login-input").fill(userID);
     await page.getByTestId("password-input").fill(userPassword);
     await page.getByTestId("login-button").click();
+    await page.getByRole('link', { name: 'płatności' }).click();
   });
 
   test('Simple payment', async ({ page }) => {
-    await page.getByRole('link', { name: 'płatności' }).click();
     await page.getByTestId('transfer_receiver').fill('Justyna Malina');
     await page.getByTestId('form_account_to').fill('12 3456 7890 1234 56');
     await page.getByTestId('form_amount').fill('777');
