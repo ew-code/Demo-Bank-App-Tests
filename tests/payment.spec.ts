@@ -14,10 +14,18 @@ test.describe("Payment tests", () => {
   });
 
   test('Simple payment', async ({ page }) => {
-    await page.getByTestId('transfer_receiver').fill('Justyna Malina');
-    await page.getByTestId('form_account_to').fill('12 3456 7890 1234 56');
-    await page.getByTestId('form_amount').fill('777');
+    // Arrange
+    const tansferReciver = 'Justyna Malina';
+    const transferAccount = '12 3456 7890 1234 56';
+    const transferAmount = '777';
+
+    // Act
+    await page.getByTestId('transfer_receiver').fill(tansferReciver);
+    await page.getByTestId('form_account_to').fill(transferAccount);
+    await page.getByTestId('form_amount').fill(transferAmount);
     await page.getByRole('button', { name: 'wykonaj przelew' }).click();
     await page.getByTestId('close-button').click();
+
+    //Assert
   });
 });
