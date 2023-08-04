@@ -27,5 +27,6 @@ test.describe("Payment tests", () => {
     await page.getByTestId('close-button').click();
 
     //Assert
+    await expect(page.)
   });
 });
