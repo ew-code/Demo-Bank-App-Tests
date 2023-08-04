@@ -18,6 +18,7 @@ test.describe("Payment tests", () => {
     const tansferReciver = 'Justyna Malina';
     const transferAccount = '12 3456 7890 1234 5678 9012 3456';
     const transferAmount = '777';
+    const expectedMessage = 'Przelew wykonany! 777,00PLN dla Justyna Malina';
 
     // Act
     await page.getByTestId('transfer_receiver').fill(tansferReciver);
@@ -27,6 +28,6 @@ test.describe("Payment tests", () => {
     await page.getByTestId('close-button').click();
 
     //Assert
-    expect(page.getByRole('link', { name: 'Przelew wykonany! 777,00PLN dla Justyna Malina' }))
+    expect(page.getByRole('link', { name: expectedMessage }))
   });
 });
