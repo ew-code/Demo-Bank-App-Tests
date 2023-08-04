@@ -27,6 +27,6 @@ test.describe("Payment tests", () => {
     await page.getByTestId('close-button').click();
 
     //Assert
-    // await expect(page.gerByRole('link' , {name: 'Przelew wykonany! 777,00PLN dla Justyna Malina'}))
+    expect(page.getByRole('link', { name: 'Przelew wykonany! 777,00PLN dla Justyna Malina' }))
   });
 });
