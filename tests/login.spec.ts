@@ -11,7 +11,7 @@ test.describe("User login to Demobank", () => {
 
   test("successful login with correct credentials", async ({ page }) => {
     const userID = loginData.userID;
-    const userPassword = loginData.password;
+    const userPassword = loginData.userPassword;
     const expectedUserName = "Jan Demobankowy";
 
     await page.getByTestId("login-input").fill(userID);
