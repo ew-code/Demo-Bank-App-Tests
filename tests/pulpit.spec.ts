@@ -4,7 +4,7 @@ import { loginData } from "../test-data/login.data";
 test.describe("Pulpit tests", () => {
   test.beforeEach(async ({ page }) => {
     const userID = loginData.userID;
-    const userPassword = loginData.password;
+    const userPassword = loginData.userPassword;
     // const url = "https://demo-bank.vercel.app/";
     // await page.goto(url);
     await page.goto("/"); //baseURL w playwright config

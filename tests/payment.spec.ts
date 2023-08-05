@@ -4,7 +4,7 @@ import { loginData } from "../test-data/login.data";
 test.describe("Payment tests", () => {
   test.beforeEach(async ({ page }) => {
     const userID = loginData.userID;
-    const userPassword = loginData.password;
+    const userPassword = loginData.userPassword;
 
     await page.goto("/"); //baseURL w playwright config
     await page.getByTestId("login-input").fill(userID);
