@@ -28,6 +28,6 @@ test.describe("Payment tests", () => {
     await page.getByTestId('close-button').click();
 
     //Assert
-    expect(page.getByRole('link', { name: expectedMessage }))
+    expect(page.getByRole('link', { name: })).toHaveText(expectedMessage);
   });
 });
