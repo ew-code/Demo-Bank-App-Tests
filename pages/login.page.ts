@@ -1,3 +1,8 @@
+import { Page } from "@playwright/test";
+
 class LoginPage {
-  constructor(parameters) {}
+    constructor(private page: Page) { }
+
+    loginInput = this.page.getByTestId('login-input')
+    // await page.getByTestId('login-input').fill(userID);
 }
