@@ -17,10 +17,7 @@ test.describe('User login to Demobank', () => {
     const loginPage = new LoginPage(page);
     await loginPage.loginInput.fill(userID);
     await loginPage.passwordInput.fill(userPassword);
-
-    // await page.getByTestId('login-input').fill(userID);
-    // await page.getByTestId('password-input').fill(userPassword);
-    // await page.getByTestId('login-button').click();
+    await loginPage.loginButton.click();
 
     await expect(page.getByTestId('user-name')).toHaveText(expectedUserName);
   });
