@@ -1,15 +1,15 @@
 import { test, expect } from '@playwright/test';
-import { loginData } from "../test-data/login.data";
+import { loginData } from '../test-data/login.data';
 
-test.describe("Payment tests", () => {
+test.describe('Payment tests', () => {
   test.beforeEach(async ({ page }) => {
     const userID = loginData.userID;
     const userPassword = loginData.userPassword;
 
-    await page.goto("/"); //baseURL w playwright config
-    await page.getByTestId("login-input").fill(userID);
-    await page.getByTestId("password-input").fill(userPassword);
-    await page.getByTestId("login-button").click();
+    await page.goto('/'); //baseURL w playwright config
+    await page.getByTestId('login-input').fill(userID);
+    await page.getByTestId('password-input').fill(userPassword);
+    await page.getByTestId('login-button').click();
     await page.getByRole('link', { name: 'płatności' }).click();
   });
 
