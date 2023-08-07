@@ -43,8 +43,6 @@ test.describe('User login to Demobank', () => {
     await loginPage.passwordInput.fill(toShortUserPassword);
     await loginPage.passwordInput.blur();
 
-    await expect(page.getByTestId('error-login-password')).toHaveText(
-      expectedToShortPassword,
-    );
+    await expect(loginPage.passwordError).toHaveText(expectedToShortPassword);
   });
 });
