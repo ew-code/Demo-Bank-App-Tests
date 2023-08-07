@@ -32,7 +32,7 @@ test.describe('User login to Demobank', () => {
     // await page.getByTestId('login-input').fill(tooShortUserId);
     // await page.getByTestId('password-input').click();
 
-    await expect(page.getByTestId('error-login-id')).toHaveText(
+    await expect(loginPage.loginError).toHaveText(
       expectedErrorTooShortUserId,
     );
   });
