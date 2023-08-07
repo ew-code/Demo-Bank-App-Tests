@@ -26,8 +26,11 @@ test.describe('User login to Demobank', () => {
     const tooShortUserId = '1234567';
     const expectedErrorTooShortUserId = 'identyfikator ma min. 8 znaków';
 
-    await page.getByTestId('login-input').fill(tooShortUserId);
-    await page.getByTestId('password-input').click();
+    const loginPage = new LoginPage(page);
+    await loginPage.loginInput.fill(tooShortUserId);
+    await loginPage.passwordInput.click();
+    // await page.getByTestId('login-input').fill(tooShortUserId);
+    // await page.getByTestId('password-input').click();
 
     await expect(page.getByTestId('error-login-id')).toHaveText(
       expectedErrorTooShortUserId,
