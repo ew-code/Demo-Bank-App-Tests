@@ -41,7 +41,7 @@ test.describe('User login to Demobank', () => {
     const loginPage = new LoginPage(page);
     await loginPage.loginInput.fill(userID);
     await loginPage.passwordInput.fill(toShortUserPassword);
-    await page.getByTestId('password-input').blur();
+    await loginPage.passwordInput.blur();
 
     await expect(page.getByTestId('error-login-password')).toHaveText(
       expectedToShortPassword,
