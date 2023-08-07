@@ -29,8 +29,6 @@ test.describe('User login to Demobank', () => {
     const loginPage = new LoginPage(page);
     await loginPage.loginInput.fill(tooShortUserId);
     await loginPage.passwordInput.click();
-    // await page.getByTestId('login-input').fill(tooShortUserId);
-    // await page.getByTestId('password-input').click();
 
     await expect(loginPage.loginError).toHaveText(
       expectedErrorTooShortUserId,
