@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { loginData } from '../test-data/login.data';
 import { LoginPage } from '../pages/login.page';
 import { topUpData, transferData } from '../test-data/pulpit.data';
+import { PulpitPage } from '../pages/pulpit.page';
 
 test.describe('Pulpit tests', () => {
   test.beforeEach(async ({ page }) => {
@@ -25,9 +26,13 @@ test.describe('Pulpit tests', () => {
     const expectedTransferReciver = transferData.expectedTransferReciver;
     const expectedTransferMessage = `Przelew wykonany! ${expectedTransferReciver} - ${transferAmount},00PLN - ${transferTitle}`;
 
-    await page.locator('#widget_1_transfer_receiver').selectOption(reciverId);
-    await page.locator('#widget_1_transfer_amount').fill(transferAmount);
-    await page.locator('#widget_1_transfer_title').fill(transferTitle);
+    const pulpitPage = new PulpitPage(page);
+    await pulpitPage.transferReciver.selectOption(reciverId);
+    await pulpitPage.transferAmount.fill(transferAmount);
+    await pulpitPage.transferTitle.fill(transferTitle);
+    // await page.locator('#widget_1_transfer_receiver').selectOption(reciverId);
+    // await page.locator('#widget_1_transfer_amount').fill(transferAmount);
+    // await page.locator('#widget_1_transfer_title').fill(transferTitle);
 
     await page.getByRole('button', { name: 'wykonaj' }).click();
     await page.getByTestId('close-button').click();
