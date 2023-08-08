@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { loginData } from '../test-data/login.data';
 import { LoginPage } from '../pages/login.page';
+import { transferData } from '../test-data/pulpit.data';
 
 test.describe('Pulpit tests', () => {
   test.beforeEach(async ({ page }) => {
@@ -17,9 +18,10 @@ test.describe('Pulpit tests', () => {
   });
 
   test('transfer with correct data', async ({ page }) => {
-    const reciverId = '2';
-    const transferAmount = '123';
-    const transferTitle = 'pizza';
+    const reciverId = transferData.reciverId;
+    const transferAmount = transferData.transferAmount;
+    const transferTitle = transferData.transferTitle;
+
     const expectedTransferReciver = 'Chuck Demobankowy';
     const expectedTransferMessage = `Przelew wykonany! ${expectedTransferReciver} - ${transferAmount},00PLN - ${transferTitle}`;
 
