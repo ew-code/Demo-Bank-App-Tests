@@ -22,7 +22,7 @@ test.describe('Pulpit tests', () => {
     const transferAmount = transferData.transferAmount;
     const transferTitle = transferData.transferTitle;
 
-    const expectedTransferReciver = 'Chuck Demobankowy';
+    const expectedTransferReciver = transferData.expectedTransferReciver;
     const expectedTransferMessage = `Przelew wykonany! ${expectedTransferReciver} - ${transferAmount},00PLN - ${transferTitle}`;
 
     await page.locator('#widget_1_transfer_receiver').selectOption(reciverId);
