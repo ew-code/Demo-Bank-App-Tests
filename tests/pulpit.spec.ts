@@ -30,12 +30,9 @@ test.describe('Pulpit tests', () => {
     await pulpitPage.transferReciver.selectOption(reciverId);
     await pulpitPage.transferAmount.fill(transferAmount);
     await pulpitPage.transferTitle.fill(transferTitle);
-    // await page.locator('#widget_1_transfer_receiver').selectOption(reciverId);
-    // await page.locator('#widget_1_transfer_amount').fill(transferAmount);
-    // await page.locator('#widget_1_transfer_title').fill(transferTitle);
 
-    await page.getByRole('button', { name: 'wykonaj' }).click();
-    await page.getByTestId('close-button').click();
+    await pulpitPage.executeButton.click();
+    await pulpitPage.closeButton.click();
 
     await expect(page.locator('#show_messages')).toHaveText(
       expectedTransferMessage,
