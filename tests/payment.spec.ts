@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { loginData } from '../test-data/login.data';
 import { LoginPage } from '../pages/login.page';
 import { transferData } from '../test-data/pulpit.data';
+import { paymentData } from '../test-data/payment.data';
 
 test.describe('Payment tests', () => {
   test.beforeEach(async ({ page }) => {
@@ -20,12 +21,9 @@ test.describe('Payment tests', () => {
 
   test('Simple payment', async ({ page }) => {
     // Arrange
-    const tansferReciver =  
-    const transferAccount = '12 3456 7890 1234 5678 9012 3456';
-    const transferAmount = '777';
-    // const tansferReciver = 'Justyna Malina';
-    // const transferAccount = '12 3456 7890 1234 5678 9012 3456';
-    // const transferAmount = '777';
+    const tansferReciver = paymentData.tansferReciver;
+    const transferAccount = paymentData.transferAccount;
+    const transferAmount = paymentData.transferAmount;
     const expectedMessage = `Przelew wykonany! ${transferAmount},00PLN dla Justyna Malina`;
 
     // Act
