@@ -4,8 +4,6 @@ import { LoginPage } from '../pages/login.page';
 
 test.describe('User login to Demobank', () => {
   test.beforeEach(async ({ page }) => {
-    // const url = "https://demo-bank.vercel.app/";
-    // await page.goto(url);
     await page.goto('/'); //baseURL w playwright config
   });
 
