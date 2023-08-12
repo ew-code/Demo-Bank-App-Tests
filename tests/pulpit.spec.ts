@@ -45,6 +45,7 @@ test.describe('Pulpit tests', () => {
 
     const expectedMobileTopUpMessage = `Doładowanie wykonane! ${topUpAmount}PLN na numer ${topUpReciver}`;
 
+    const pulpitPage = new PulpitPage(page);
     await page.locator('#widget_1_topup_receiver').selectOption(topUpReciver);
     await page.locator('#widget_1_topup_amount').fill(topUpAmount);
     await page.locator('#uniform-widget_1_topup_agreement span').click();
