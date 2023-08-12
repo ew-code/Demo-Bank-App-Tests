@@ -16,4 +16,5 @@ export class PulpitPage {
   closeButton = this.page.getByTestId('close-button');
 
   showMessages = this.page.locator('#show_messages');
+  moneyValue = this.page.locator('#money_value');
 }

@@ -65,7 +65,7 @@ test.describe('Pulpit tests', () => {
     await pulpitPage.topUpButton.click();
     await pulpitPage.closeButton.click();
 
-    await expect(page.locator('#money_value')).toHaveText(`${expectedBalance}`);
+    await expect(pulpitPage.moneyValue).toHaveText(`${expectedBalance}`);
   });
 });
 
