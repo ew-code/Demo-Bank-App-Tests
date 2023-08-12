@@ -8,8 +8,6 @@ test.describe('Pulpit tests', () => {
   test.beforeEach(async ({ page }) => {
     const userID = loginData.userID;
     const userPassword = loginData.userPassword;
-    // const url = "https://demo-bank.vercel.app/";
-    // await page.goto(url);
     await page.goto('/'); //baseURL w playwright config
 
     const loginPage = new LoginPage(page);
