@@ -9,4 +9,6 @@ export class LoginPage {
 
   loginError = this.page.getByTestId('error-login-id');
   passwordError = this.page.getByTestId('error-login-password');
+
+  
 }

@@ -11,9 +11,8 @@ export class PulpitPage {
   topupAgreement = this.page.locator('#uniform-widget_1_topup_agreement span');
   topUpButton = this.page.getByRole('button', { name: 'doładuj telefon' });
 
-  // const initialBlance = await page.locator('#money_value').innerText()
-  // const expectedBalance = Number(initialBlance) - Number(topUpAmount)
-
   executeButton = this.page.getByRole('button', { name: 'wykonaj' });
   closeButton = this.page.getByTestId('close-button');
+
+  showMessages = this.page.locator('#show_messages');
 }

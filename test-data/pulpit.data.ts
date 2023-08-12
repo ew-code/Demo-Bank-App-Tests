@@ -7,5 +7,5 @@ export const transferData = {
 
 export const topUpData = {
   topUpReciver: '500 xxx xxx',
-  topUpAmount: '40,00',
+  topUpAmount: '400',
 };
