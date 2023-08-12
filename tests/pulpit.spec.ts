@@ -42,6 +42,7 @@ test.describe('Pulpit tests', () => {
   test('successful mobile top-up', async ({ page }) => {
     const topUpReciver = topUpData.topUpReciver;
     const topUpAmount = topUpData.topUpAmount;
+
     const expectedMobileTopUpMessage = `Doładowanie wykonane! ${topUpAmount}PLN na numer ${topUpReciver}`;
 
     await page.locator('#widget_1_topup_receiver').selectOption(topUpReciver);
@@ -56,8 +57,9 @@ test.describe('Pulpit tests', () => {
   });
 
   test('correct balance after successful mobile top-up', async ({ page }) => {
-    const topUpReciver = '500 xxx xxx';
-    const topUpAmount = '400';
+    const topUpReciver = topUpData.topUpReciver;
+    const topUpAmount = topUpData.topUpAmount;
+
     const initialBlance = await page.locator('#money_value').innerText();
     const expectedBalance = Number(initialBlance) - Number(topUpAmount);
 
