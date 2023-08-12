@@ -64,11 +64,13 @@ test.describe('Pulpit tests', () => {
     const initialBlance = await page.locator('#money_value').innerText();
     const expectedBalance = Number(initialBlance) - Number(topUpAmount);
 
-    await page.locator('#widget_1_topup_receiver').selectOption(topUpReciver);
-    await page.locator('#widget_1_topup_amount').fill(topUpAmount);
-    await page.locator('#uniform-widget_1_topup_agreement span').click();
-    await page.getByRole('button', { name: 'doładuj telefon' }).click();
-    await page.getByTestId('close-button').click();
+    const pulpitPage = new PulpitPage(page);
+    await pulpitPage.topUpReciver.selectOption(topUpReciver);
+    await pulpitPage.topUpAmount.fill(topUpAmount);
+    await pulpitPage.topupAgreement.click();
+    await pulpitPage.topUpButton.click();
+    await pulpitPage.closeButton.click();
+
     await expect(page.locator('#money_value')).toHaveText(`${expectedBalance}`);
   });
 });
