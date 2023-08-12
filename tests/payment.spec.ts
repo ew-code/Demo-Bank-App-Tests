@@ -28,11 +28,11 @@ test.describe('Payment tests', () => {
 
     // Act
     const paymentPage = new PaymentPage(page)
-    await paymentPage.tansferReciver.fill(tansferReciver);
-    await paymentPage.transferAccount.fill(transferAccount);
-    await paymentPage.transferAmount.fill(transferAmount);
-    await paymentPage.makeTransfer.click();
-    await paymentPage.closeButton.click();
+    await paymentPage.tansferReciverInput.fill(tansferReciver);
+    await paymentPage.transferAccountInput.fill(transferAccount);
+    await paymentPage.transferAmountInput.fill(transferAmount);
+    await paymentPage.transferButton.click();
+    await paymentPage.actionCloseButton.click();
 
     //Assert
     await expect(paymentPage.showMessages).toHaveText(expectedMessage);
