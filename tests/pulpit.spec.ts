@@ -29,8 +29,8 @@ test.describe('Pulpit tests', () => {
     await pulpitPage.transferAmount.fill(transferAmount);
     await pulpitPage.transferTitle.fill(transferTitle);
 
-    await pulpitPage.executeButton.click();
-    await pulpitPage.closeButton.click();
+    await pulpitPage.transferButton.click();
+    await pulpitPage.actionCloseButton.click();
 
     await expect(pulpitPage.showMessages).toHaveText(expectedTransferMessage);
   });

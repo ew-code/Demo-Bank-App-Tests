@@ -12,8 +12,8 @@ export class PulpitPage {
 
   topUpButton = this.page.getByRole('button', { name: 'doładuj telefon' });
 
-  executeButton = this.page.getByRole('button', { name: 'wykonaj' });
-  closeButton = this.page.getByTestId('close-button');
+  transferButton = this.page.getByRole('button', { name: 'wykonaj' });
+  actionCloseButton = this.page.getByTestId('close-button');
 
   showMessages = this.page.locator('#show_messages');
   moneyValue = this.page.locator('#money_value');
