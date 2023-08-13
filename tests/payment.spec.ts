@@ -18,7 +18,7 @@ test.describe('Payment tests', () => {
     await loginPage.loginButton.click();
 
     const pulpitPage = new PulpitPage(page);
-    await pulpitPage.paymentButton.click();
+    await pulpitPage.sideMenu.paymentButton.click();
   });
 
   test('Simple payment', async ({ page }) => {
