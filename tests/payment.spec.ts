@@ -27,7 +27,7 @@ test.describe('Payment tests', () => {
     const expectedMessage = `Przelew wykonany! ${transferAmount},00PLN dla Justyna Malina`;
 
     // Act
-    const paymentPage = new PaymentPage(page)
+    const paymentPage = new PaymentPage(page);
     await paymentPage.tansferReciverInput.fill(tansferReciver);
     await paymentPage.transferAccountInput.fill(transferAccount);
     await paymentPage.transferAmountInput.fill(transferAmount);

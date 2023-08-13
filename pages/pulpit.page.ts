@@ -8,7 +8,9 @@ export class PulpitPage {
 
   topUpReciverInput = this.page.locator('#widget_1_topup_receiver');
   topUpAmount = this.page.locator('#widget_1_topup_amount');
-  topupAgreementCheckbox = this.page.locator('#uniform-widget_1_topup_agreement span');
+  topupAgreementCheckbox = this.page.locator(
+    '#uniform-widget_1_topup_agreement span',
+  );
 
   topUpButton = this.page.getByRole('button', { name: 'doładuj telefon' });
 
@@ -17,4 +19,5 @@ export class PulpitPage {
 
   messageText = this.page.locator('#show_messages');
   moneyValueText = this.page.locator('#money_value');
+  userNameText = this.page.getByTestId('user-name');
 }
