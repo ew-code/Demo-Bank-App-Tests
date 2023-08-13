@@ -15,6 +15,6 @@ export class PulpitPage {
   transferButton = this.page.getByRole('button', { name: 'wykonaj' });
   actionCloseButton = this.page.getByTestId('close-button');
 
-  showMessages = this.page.locator('#show_messages');
+  messageText = this.page.locator('#show_messages');
   moneyValue = this.page.locator('#money_value');
 }

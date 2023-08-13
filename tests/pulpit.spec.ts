@@ -32,7 +32,7 @@ test.describe('Pulpit tests', () => {
     await pulpitPage.transferButton.click();
     await pulpitPage.actionCloseButton.click();
 
-    await expect(pulpitPage.showMessages).toHaveText(expectedTransferMessage);
+    await expect(pulpitPage.messageText).toHaveText(expectedTransferMessage);
   });
 
   test('successful mobile top-up', async ({ page }) => {
@@ -46,9 +46,9 @@ test.describe('Pulpit tests', () => {
     await pulpitPage.topUpAmount.fill(topUpAmount);
     await pulpitPage.topupAgreement.click();
     await pulpitPage.topUpButton.click();
-    await pulpitPage.closeButton.click();
+    await pulpitPage.actionCloseButton.click();
 
-    await expect(pulpitPage.showMessages).toHaveText(expectedMobileTopUpMessage);
+    await expect(pulpitPage.messageText).toHaveText(expectedMobileTopUpMessage);
   });
 
   test('correct balance after successful mobile top-up', async ({ page }) => {
