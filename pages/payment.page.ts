@@ -1,9 +1,7 @@
 import { Page } from '@playwright/test';
 
 export class PaymentPage {
-  constructor(private page: Page) { }
-
-  paymentButton = this.page.getByRole('link', { name: 'płatności' });
+  constructor(private page: Page) {}
 
   tansferReciverInput = this.page.getByTestId('transfer_receiver');
   transferAccountInput = this.page.getByTestId('form_account_to');
