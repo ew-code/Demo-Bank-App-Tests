@@ -5,10 +5,13 @@ import { topUpData, transferData } from '../test-data/pulpit.data';
 import { PulpitPage } from '../pages/pulpit.page';
 
 test.describe('Pulpit tests', () => {
+  let pulpitPage: PulpitPage;
+
   test.beforeEach(async ({ page }) => {
     const userID = loginData.userID;
     const userPassword = loginData.userPassword;
     await page.goto('/'); //baseURL w playwright config
+    pulpitPage = new PulpitPage(page);
 
     const loginPage = new LoginPage(page);
     await loginPage.loginInput.fill(userID);
@@ -24,7 +27,6 @@ test.describe('Pulpit tests', () => {
     const expectedTransferReciver = transferData.expectedTransferReciver;
     const expectedTransferMessage = `Przelew wykonany! ${expectedTransferReciver} - ${transferAmount},00PLN - ${transferTitle}`;
 
-    const pulpitPage = new PulpitPage(page);
     await pulpitPage.transferReciver.selectOption(reciverId);
     await pulpitPage.transferAmount.fill(transferAmount);
     await pulpitPage.transferTitle.fill(transferTitle);
@@ -41,7 +43,6 @@ test.describe('Pulpit tests', () => {
 
     const expectedMobileTopUpMessage = `Doładowanie wykonane! ${topUpAmount},00PLN na numer ${topUpReciver}`;
 
-    const pulpitPage = new PulpitPage(page);
     await pulpitPage.topUpReciverInput.selectOption(topUpReciver);
     await pulpitPage.topUpAmount.fill(topUpAmount);
     await pulpitPage.topupAgreementCheckbox.click();
@@ -52,7 +53,6 @@ test.describe('Pulpit tests', () => {
   });
 
   test('correct balance after successful mobile top-up', async ({ page }) => {
-    const pulpitPage = new PulpitPage(page);
     const topUpReciver = topUpData.topUpReciver;
     const topUpAmount = topUpData.topUpAmount;
 
