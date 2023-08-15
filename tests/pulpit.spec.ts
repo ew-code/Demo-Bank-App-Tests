@@ -14,9 +14,7 @@ test.describe('Pulpit tests', () => {
     pulpitPage = new PulpitPage(page);
 
     const loginPage = new LoginPage(page);
-    await loginPage.loginInput.fill(userID);
-    await loginPage.passwordInput.fill(userPassword);
-    await loginPage.loginButton.click();
+    await loginPage.login(userID, userPassword);
   });
 
   test('transfer with correct data', async ({ page }) => {
