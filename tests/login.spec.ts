@@ -4,8 +4,11 @@ import { LoginPage } from '../pages/login.page';
 import { PulpitPage } from '../pages/pulpit.page';
 
 test.describe('User login to Demobank', () => {
+  let loginPage: LoginPage;
+
   test.beforeEach(async ({ page }) => {
     await page.goto('/'); //baseURL w playwright config
+    loginPage = new LoginPage(page);
   });
 
   test('successful login with correct credentials', async ({ page }) => {
@@ -13,7 +16,6 @@ test.describe('User login to Demobank', () => {
     const userPassword = loginData.userPassword;
     const expectedUserName = 'Jan Demobankowy';
 
-    const loginPage = new LoginPage(page);
     await loginPage.loginInput.fill(userID);
     await loginPage.passwordInput.fill(userPassword);
     await loginPage.loginButton.click();
@@ -26,7 +28,6 @@ test.describe('User login to Demobank', () => {
     const tooShortUserId = '1234567';
     const expectedErrorTooShortUserId = 'identyfikator ma min. 8 znaków';
 
-    const loginPage = new LoginPage(page);
     await loginPage.loginInput.fill(tooShortUserId);
     await loginPage.passwordInput.click();
 
@@ -38,7 +39,6 @@ test.describe('User login to Demobank', () => {
     const toShortUserPassword = '1234567';
     const expectedToShortPassword = 'hasło ma min. 8 znaków';
 
-    const loginPage = new LoginPage(page);
     await loginPage.loginInput.fill(userID);
     await loginPage.passwordInput.fill(toShortUserPassword);
     await loginPage.passwordInput.blur();
