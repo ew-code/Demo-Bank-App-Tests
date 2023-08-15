@@ -15,9 +15,7 @@ test.describe('Payment tests', () => {
     await page.goto('/'); //baseURL w playwright config
 
     const loginPage = new LoginPage(page);
-    await loginPage.loginInput.fill(userID);
-    await loginPage.passwordInput.fill(userPassword);
-    await loginPage.loginButton.click();
+    await loginPage.login(userID, userPassword);
 
     paymentPage = new PaymentPage(page);
     const pulpitPage = new PulpitPage(page);
