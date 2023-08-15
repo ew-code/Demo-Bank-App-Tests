@@ -6,6 +6,8 @@ import { PaymentPage } from '../pages/payment.page';
 import { PulpitPage } from '../pages/pulpit.page';
 
 test.describe('Payment tests', () => {
+  let paymentPage: PaymentPage;
+
   test.beforeEach(async ({ page }) => {
     const userID = loginData.userID;
     const userPassword = loginData.userPassword;
@@ -17,6 +19,7 @@ test.describe('Payment tests', () => {
     await loginPage.passwordInput.fill(userPassword);
     await loginPage.loginButton.click();
 
+    paymentPage = new PaymentPage(page);
     const pulpitPage = new PulpitPage(page);
     await pulpitPage.sideMenu.paymentButton.click();
   });
@@ -29,7 +32,6 @@ test.describe('Payment tests', () => {
     const expectedMessage = `Przelew wykonany! ${transferAmount},00PLN dla Justyna Malina`;
 
     // Act
-    const paymentPage = new PaymentPage(page);
     await paymentPage.tansferReciverInput.fill(tansferReciver);
     await paymentPage.transferAccountInput.fill(transferAccount);
     await paymentPage.transferAmountInput.fill(transferAmount);
