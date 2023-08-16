@@ -40,7 +40,7 @@ test.describe('Pulpit tests', () => {
 
     const expectedMobileTopUpMessage = `Doładowanie wykonane! ${topUpAmount},00PLN na numer ${topUpReciver}`;
 
-    await pulpitPage.makeTopUp(topUpReciver, topUpAmount);
+    await pulpitPage.executeMobileTopUp(topUpReciver, topUpAmount);
 
     await expect(pulpitPage.messageText).toHaveText(expectedMobileTopUpMessage);
   });
@@ -52,7 +52,7 @@ test.describe('Pulpit tests', () => {
     const initialBlance = await pulpitPage.moneyValueText.innerText();
     const expectedBalance = Number(initialBlance) - Number(topUpAmount);
 
-    await pulpitPage.makeTopUp(topUpReciver, topUpAmount);
+    await pulpitPage.executeMobileTopUp(topUpReciver, topUpAmount);
 
     await expect(pulpitPage.moneyValueText).toHaveText(`${expectedBalance}`);
   });

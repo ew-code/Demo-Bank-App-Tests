@@ -37,7 +37,7 @@ export class PulpitPage {
     await this.actionCloseButton.click();
   }
 
-  async makeTopUp(
+  async executeMobileTopUp(
     topUpReciver: string,
     topUpAmount: string,
   ): Promise<void> {
