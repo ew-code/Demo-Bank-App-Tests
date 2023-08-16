@@ -24,4 +24,16 @@ export class PulpitPage {
   messageText = this.page.locator('#show_messages');
   moneyValueText = this.page.locator('#money_value');
   userNameText = this.page.getByTestId('user-name');
+
+  async makeTransfer(
+    reciverId: string,
+    transferAmount: string,
+    transferTitle: string,
+  ): Promise<void> {
+    await this.transferReciver.selectOption(reciverId);
+    await this.transferAmount.fill(transferAmount);
+    await this.transferTitle.fill(transferTitle);
+    await this.transferButton.click();
+    await this.actionCloseButton.click();
+  }
 }

@@ -25,12 +25,7 @@ test.describe('Pulpit tests', () => {
     const expectedTransferReciver = transferData.expectedTransferReciver;
     const expectedTransferMessage = `Przelew wykonany! ${expectedTransferReciver} - ${transferAmount},00PLN - ${transferTitle}`;
 
-    await pulpitPage.transferReciver.selectOption(reciverId);
-    await pulpitPage.transferAmount.fill(transferAmount);
-    await pulpitPage.transferTitle.fill(transferTitle);
-
-    await pulpitPage.transferButton.click();
-    await pulpitPage.actionCloseButton.click();
+    await pulpitPage.makeTransfer(reciverId, transferAmount, transferTitle);
 
     await expect(pulpitPage.messageText).toHaveText(expectedTransferMessage);
   });
