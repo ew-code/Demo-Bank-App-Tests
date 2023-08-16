@@ -36,4 +36,15 @@ export class PulpitPage {
     await this.transferButton.click();
     await this.actionCloseButton.click();
   }
+
+  async makeTopUp(
+    topUpReciver: string,
+    topUpAmount: string,
+  ): Promise<void> {
+    await this.topUpReciverInput.selectOption(topUpReciver);
+    await this.topUpAmount.fill(topUpAmount);
+    await this.topupAgreementCheckbox.click();
+    await this.topUpButton.click();
+    await this.actionCloseButton.click();
+  }
 }
