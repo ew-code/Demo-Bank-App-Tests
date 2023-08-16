@@ -25,7 +25,11 @@ test.describe('Pulpit tests', () => {
     const expectedTransferReciver = transferData.expectedTransferReciver;
     const expectedTransferMessage = `Przelew wykonany! ${expectedTransferReciver} - ${transferAmount},00PLN - ${transferTitle}`;
 
-    await pulpitPage.makeTransfer(reciverId, transferAmount, transferTitle);
+    await pulpitPage.executeQuickPayment(
+      reciverId,
+      transferAmount,
+      transferTitle,
+    );
 
     await expect(pulpitPage.messageText).toHaveText(expectedTransferMessage);
   });
