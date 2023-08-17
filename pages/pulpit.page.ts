@@ -47,4 +47,5 @@ export class PulpitPage {
     await this.topUpButton.click();
     await this.actionCloseButton.click();
   }
+
 }
