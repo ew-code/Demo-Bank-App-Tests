@@ -57,13 +57,3 @@ test.describe('Pulpit tests', () => {
     await expect(pulpitPage.moneyValueText).toHaveText(`${expectedBalance}`);
   });
 });
-
-// lokator - metoda w jaki sposób łapiemy jak odnajduemy element
-
-// selektor - adres elementu
-
-// $$('#widget_1_transfer_amount') sprawdzenie elemetu w konsoli !!!!
-
-// czyścimy testy np. z niepotrzebnych kliknięć
-
-// alt + shift + strzałka w dół (kopiuje linie i wkleja ją niżej)
